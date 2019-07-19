@@ -9,6 +9,7 @@ scalaVersion := "2.13.0"
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3" % Test
+libraryDependencies += "org.reactivemongo" %% "play2-reactivemongo" % "0.18.1-play27"
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.football.controllers._"

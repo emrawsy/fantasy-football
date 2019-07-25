@@ -108,9 +108,14 @@ class PlayerManagerController @Inject()(cc: ControllerComponents,
   //create new instance of a player
   def postNewPlayer = Action.async(parse.json[Player]) {
     implicit request =>
-      playerCollection.flatMap(_.insert.one(request.body).map(_ => Ok)).recoverWith {
-        case e => Future.successful(BadRequest(s"Failed with exception: $e"))
-      }
+
+            playerRepository.put(request.body) map {
+
+              Ok()
+            }
+//      playerCollection.flatMap(_.insert.one(request.body).map(_ => Ok)).recoverWith {
+//        case e => Future.successful(BadRequest(s"Failed with exception: $e"))
+//      }
   }
 
   //delete a player found by ID

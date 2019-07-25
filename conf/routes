@@ -8,18 +8,18 @@ GET     /                                               controllers.HomeControll
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                                   controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /player/:id                                     controllers.PlayerManagerController.getPlayer(id)
+GET     /player/:id                                     controllers.PlayerManagerController.getPlayer(id:CardId)
 
-GET     /player/get-amount/:id                          controllers.PlayerManagerController.getAmount(id:String)
+GET     /player/get-amount/:id                          controllers.PlayerManagerController.getAmount(id:CardId)
 
 POST    /player                                         controllers.PlayerManagerController.postNewPlayer
 
-DELETE  /player                                         controllers.PlayerManagerController.deletePlayer
-
 DELETE  /player/:id                                     controllers.PlayerManagerController.deletePlayerById(id)
 
-POST    /player/update-player-name/:id/:newName           controllers.PlayerManagerController.updatePlayerName(id, newName)
+POST    /player/update-player-name/:id/:newName         controllers.PlayerManagerController.updatePlayerName(id:CardId, newName)
 
-POST    /player/decrease-amount/:id/:amount             controllers.PlayerManagerController.decreaseAmount(id:String, amount:Double)
+POST    /player/decrease-amount/:id/:amount             controllers.PlayerManagerController.decreaseAmount(id:CardId, amount:Double)
 
-POST    /player/increase-amount/:id/:amount             controllers.PlayerManagerController.increaseAmount(id:String, amount:Double)
+POST    /player/increase-amount/:id/:amount             controllers.PlayerManagerController.increaseAmount(id:CardId, amount:Double)
+
+GET     /present/:id                                    controllers.PlayerManagerController.present(id:CardId)

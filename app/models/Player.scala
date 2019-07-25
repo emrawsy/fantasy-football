@@ -2,7 +2,7 @@ package models
 
 import play.api.libs.json._
 
-case class Player(id: String, name: String, value: BigDecimal)
+case class Player(id: String, name: String, amount: BigDecimal)
 
 
 object Player {
